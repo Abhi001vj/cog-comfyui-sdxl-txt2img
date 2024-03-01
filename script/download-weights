@@ -11,14 +11,49 @@ import shutil
 # Clone ComfyUI repo
 os.system("git clone https://github.com/comfyanonymous/ComfyUI.git")
 os.system("mkdir -p models/checkpoints")
+os.system("mkdir -p models/vae")
+os.system("mkdir -p models/loras")
+os.system("mkdir -p custom_nodes")
 
-# TODO: See if linking from ComfyUI/models/checkpoints to models/checkpoints works
+
+
+os.system("git clone https://github.com/ltdrdata/ComfyUI-Manager custom_nodes/ComfyUI-Manager")
+os.system("git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack custom_nodes/ComfyUI-Impact-Pack")
+os.system("git clone https://github.com/omar92/ComfyUI-QualityOfLifeSuit_Omar92 custom_nodes/ComfyUI-QualityOfLifeSuit_Omar92")
+os.system("git clone https://github.com/cubiq/ComfyUI_FaceAnalysis custom_nodes/ComfyUI_FaceAnalysis")
+os.system("git clone https://github.com/kijai/ComfyUI-KJNodes custom_nodes/ComfyUI-KJNodes")
+os.system("git clone https://github.com/bronkula/comfyui-fitsize custom_nodes/comfyui-fitsize")
+os.system("git clone https://github.com/crystian/ComfyUI-Crystools custom_nodes/ComfyUI-Crystools")
+os.system("git clone https://github.com/ltdrdata/ComfyUI-Inspire-Pack custom_nodes/ComfyUI-Inspire-Pack")
+# os.system("git clone https://github.com/FizzleDorf/ComfyUI_FizzNode custom_nodes/ComfyUI_FizzNode")
+os.system("git clone https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes custom_nodes/Derfuu_ComfyUI_ModdedNodes")
+os.system("git clone https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet custom_nodes/ComfyUI-Advanced-ControlNet")
+os.system("git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite custom_nodes/ComfyUI-VideoHelperSuite")
+os.system("git clone https://github.com/theUpsider/ComfyUI-Logic custom_nodes/ComfyUI-Logic")
+os.system("git clone https://github.com/Fannovel16/comfyui_controlnet_aux custom_nodes/comfyui_controlnet_aux")
+os.system("git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus custom_nodes/ComfyUI_IPAdapter_plus")
+
+# TODO: See if linking from models/checkpoints to models/checkpoints works
 os.system("rm -rf ComfyUI/models/checkpoints")
 os.system("ln -s /src/models/checkpoints ComfyUI/models/checkpoints")
-
+os.system("rm -rf ComfyUI/models/vae")
+os.system("ln -s /src/models/vae ComfyUI/models/vae")
+os.system("rm -rf ComfyUI/models/loras")
+os.system("ln -s /src/models/loras ComfyUI/models/loras")
+os.system("rm -rf ComfyUI/custom_nodes")
+os.system("ln -s /src/models/custom_nodes ComfyUI/custom_nodes")
 # Download model weights
-os.system("wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors -P models/checkpoints/")
-os.system("wget https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors -P models/checkpoints/")
+# os.system("wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors -P models/checkpoints/")
+# os.system("wget https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors -P models/checkpoints/")
+os.system("wget -O models/checkpoints/sd_xl_base_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors")
+os.system("wget -O models/checkpoints/juggernautXL_v7Rundiffusion.safetensors https://civitai.com/api/download/models/240840")
+os.system("wget -O models/checkpoints/epicrealism_naturalSinRC1VAE.safetensors https://civitai.com/api/download/models/143906")
 
-# Move all models to ComfyUI/models/checkpoints
-# os.system("mv ./models/checkpoints/* ComfyUI/models/checkpoints/")
+os.system("wget -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors")
+os.system("wget -O models/vae/sdxl-vae-fp16-fix.safetensors https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors")
+os.system("wget -O models/vae/vae-ft-mse-840000-ema-pruned.safetensors https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors")
+os.system("wget -O models/loras/xl_more_art-full_v1.safetensors https://civitai.com/api/download/models/152309")
+os.system("wget -O models/loras/more_details.safetensors https://civitai.com/api/download/models/87153")
+os.system("wget -O models/loras/elsajean_SDXL.safetensors https://civitai.com/api/download/models/155559")
+# Move all models to models/checkpoints
+# os.system("mv ./models/checkpoints/* models/checkpoints/")
