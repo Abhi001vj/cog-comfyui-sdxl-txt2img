@@ -92,8 +92,8 @@ class Predictor(BasePredictor):
     # TODO: add dynamic fields based on the workflow selected
     def predict(
         self,
-        input_prompt: str = Input(description="Prompt", default="beautiful scenery nature glass bottle landscape, purple galaxy bottle"),
-        negative_prompt: str = Input(description="Negative Prompt", default="text, watermark, ugly, blurry"),
+        input_prompt: str = Input(description="Prompt", default="a photo of 3lsaj3an, blonde woman, in a sexy schoolgirl outfit, best quality, detailed skin"),
+        negative_prompt: str = Input(description="Negative Prompt", default="asian,worst quality, 3D, cgi, (deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, out of the frame, ((fire)), nsfw, nude, naked"),
         steps: int = Input(
             description="Steps",
             default=30
